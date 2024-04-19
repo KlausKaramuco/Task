@@ -1,0 +1,21 @@
+<h2 mat-dialog-title>Input your data: </h2>
+<mat-dialog-content class="mat-typography">
+  <form action="list" [formGroup]="employerFormGroup">
+    <!-- {{ employerFormGroup.value | json }} -->
+    <input type="textbox" placeholder="Name" name="Name" formControlName="name" required><br>
+    <input type="textbox" placeholder="Surname" name="Surname" formControlName="surname"><br>
+    <input type="textbox" placeholder="Date of Birth" name="dob" formControlName="dob"><br>
+    <input type="textbox" placeholder="ID" formControlName="id" name="ID" required><br>
+    
+    <button *ngIf="data === 'ADD'" mat-button [mat-dialog-close]="true" cdkFocusInitial (click)="addEmployee()">Add</button>
+    <button *ngIf="data === 'EDIT'" mat-button [mat-dialog-close]="true" cdkFocusInitial (click)="editEmployee()">Edit</button>
+     
+
+
+    </form>
+   
+    
+  </mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+</mat-dialog-actions>

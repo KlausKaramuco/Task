@@ -1,0 +1,56 @@
+<html>
+
+<body>
+
+
+    <div>
+        <h1><strong>Welcome to our webpage</strong></h1>
+        <h2>This is the list: </h2>
+    </div>
+
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Date of Birth</th>
+            <th>ID</th>
+            <th>Actions</th>
+        </tr>
+        <tr *ngFor='let elements of employees, let i = index, let employee of employees'>
+            
+            <td [contentEditable]="elements.editing">{{elements.name}}</td>
+            <td [contentEditable]="elements.editing">{{elements.surname}}</td>
+            <td [contentEditable]="elements.editing">{{elements.dob}}</td>
+            <td [contentEditable]="elements.editing">{{elements.id}}</td>
+            
+            <td>
+                <button id="btn1" (click)="DeleteRow(i)">Delete row</button><br>
+                
+            </td>
+            <td>
+                <button *ngIf="!elements.editing" (click)="ToggleEdit(i)">Edit</button>
+                <button type="submit" *ngIf="elements.editing" (click)="saveChanges(i)">Save</button>
+                <button *ngIf="elements.editing" (click)="cancelEdit(i)">Cancel</button>
+            </td>
+
+            <td>
+
+                <button mat-button (click)="editData(elements)">Edit Data Through Modal</button>
+
+
+
+
+
+            </td>
+
+        </tr>
+    </table>
+    <div>
+      
+        <button mat-button (click)="openDialog()">Open dialog</button>
+
+
+    </div>
+</body>
+
+</html>
